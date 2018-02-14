@@ -7,12 +7,12 @@ Vagrant.configure(2) do |config|
   config.vm.network :forwarded_port, guest: 80, host: 8080
 
   ### run shell provisioner
-  config.vm.provision 'shell', path: 'script.sh'
+#  config.vm.provision 'shell', path: 'script.sh'
 
   ### run chef provisioner
-  #config.vm.provision 'chef_solo' do |chef|
-  #  chef.version = '13.2.20'
-  #  chef.arguments = '--legacy-mode'
-  #  chef.add_recipe 'opsschool-logo'
-  #end
+  config.vm.provision 'chef_solo' do |chef|
+    chef.version = '13.2.20'
+    chef.arguments = '--legacy-mode'
+    chef.add_recipe 'opsschool-logo'
+  end
 end
